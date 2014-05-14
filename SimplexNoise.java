@@ -1,8 +1,13 @@
 /**
  * SimplexNoise.java -- object to create Perlin-style simplex noise
- * Copyright (c) 2013 Andrew Thall
+ * Andrew Thall (most of code actually Stefan Gustavson)
  * Alma College
  * 11/5/13
+ *
+ * In comedy of errors, did a port of Eliot's C++ back to Java, resulting
+ * in near identical code (including original documentation and variable names)
+ * to Stefan G.'s original Java implementation.  I (Thall) make no claim to
+ * this work being mine.  Just wanted it in a repository for my students.
  * 
  * A port to Java of the Eliot Eshelman's C++ library 
  * 
@@ -64,6 +69,13 @@ public class SimplexNoise {
 		}
 		long finish = System.currentTimeMillis() - start;
 		System.out.println("1 million calls to raw 4d took " + finish + " milliseconds.");
+
+		start = System.currentTimeMillis();
+		for (int i = 0; i < 1000000; i++) {
+		   SimplexNoiseSTEGU.noise(5, i/40.0, i/50.0, i/60.0);
+		}
+		finish = System.currentTimeMillis() - start;
+		System.out.println("vs. Stego's " + finish + " milliseconds.");
 	}
 	/**
 	 * octave_noise_2d() -- 2D multi-octave Simplex noise.
