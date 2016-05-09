@@ -45,7 +45,6 @@ dimension, you can ensure that each gets a unique noise value and they don't
 all look identical.
 """
 
-from math import cos
 from math import sqrt
 
 def octave_noise_2d(octaves, persistence, scale, x, y):
